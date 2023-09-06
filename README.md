@@ -1,13 +1,13 @@
 
 ***
 
-# Welcome to The Beta Testing Studios. Pvt. Ltd!
+# Welcome to The C-PROJECTS-BETA-TESTING Repository!
 
 ***
 
 ## Some info about us:
 
-### The projects hooked with this specific repository are developer-friendly and consist of prototype projects. This is just a start-up repository and is not supposed to be handling complete, descriptive projects.
+### The projects hooked with this specific repository are purely coded with C are developer-friendly and consist of prototype projects. This is just a start-up repository and is not supposed to be handling complete, descriptive projects.
 
 ### The below is only a reference to our security policies, we will probably update them when any three of our issues are fixed. Don't worry! That will definitely happen soon! To learn more about our security policy, please visit this link: https://github.com/pavans2011/prototype_projects/blob/main/SECURITY.md?plain=1
 
@@ -32,7 +32,7 @@
 
 ***
  
-![](https://wallpaperaccess.com/full/323073.jpg)
+![](https://w0.peakpx.com/wallpaper/390/39/HD-wallpaper-compulsory-abstract-abstract.jpg)
 
 ### Arios Amigos!
 ### Powering off...
