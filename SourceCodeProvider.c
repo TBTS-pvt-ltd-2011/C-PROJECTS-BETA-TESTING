@@ -4,16 +4,15 @@ int main() {
     FILE *fp;
     int c;
    
-    // open the current input file
     fp = fopen(__FILE__,"r");
 
     do {
-         c = getc(fp);   // read character 
-         putchar(c);     // display character
+         c = getc(fp); // this part reads the provided characters 
+         putchar(c);   // this part display characters
     }
-    while(c != EOF);  // loop until the end of file is reached
+    while(c != EOF);  // this will loop until the end of file is reached
+        fclose(fp);
     
-    fclose(fp);
     return 0;
 }
 Shar
