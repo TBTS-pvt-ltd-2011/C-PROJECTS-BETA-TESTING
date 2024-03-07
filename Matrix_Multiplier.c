@@ -1,59 +1,46 @@
 
-// C program to multiply two matrices
 #include <stdio.h>
-#include <stdlib.h>
 
-// matrix dimensions so that we dont have to pass them as
-// parametersmat1[R1][C1] and mat2[R2][C2]
-#define R1 2 // number of rows in Matrix-1
-#define C1 2 // number of columns in Matrix-1
-#define R2 2 // number of rows in Matrix-2
-#define C2 3 // number of columns in Matrix-2
-
-void multiplyMatrix(int m1[][C1], int m2[][C2])
-{
-	int result[R1][C2];
-
-	printf("Resultant Matrix is:\n");
-
-	for (int i = 0; i < R1; i++) {
-		for (int j = 0; j < C2; j++) {
-			result[i][j] = 0;
-
-			for (int k = 0; k < R2; k++) {
-				result[i][j] += m1[i][k] * m2[k][j];
-			}
-
-			printf("%d\t", result[i][j]);
-		}
-
-		printf("\n");
-	}
+// Function to check matrix compatibility for multiplication
+int checkCompatibility(int rows1, int cols1, int rows2, int cols2) {
+    if (cols1 != rows2) {
+        printf("Error: Incompatible matrix dimensions for multiplication.\n");
+        printf("Number of columns in the first matrix (%" PRId32 ") must be equal to the number of rows in the second matrix (%" PRId32 ").\n", cols1, rows2);
+        return 1; // Indicate error
+    }
+    return 0; // Indicate success
 }
 
-// Driver code
-int main()
-{
-	// R1 = 4, C1 = 4 and R2 = 4, C2 = 4 (Update these
-	// values in MACROs)
-	int m1[R1][C1] = { { 1, 1 }, { 2, 2 } };
+// Function to perform matrix multiplication
+void multiplyMatrices(int m1[][10], int m2[][10], int result[][10], int rows1, int cols1, int rows2, int cols2) {
+    if (checkCompatibility(rows1, cols1, rows2, cols2)) {
+        return; // Handle potential error in compatibility check
+    }
 
-	int m2[R2][C2] = { { 1, 1, 1 }, { 2, 2, 2 } };
+    printf("Resultant Matrix:\n");
 
-	// if coloumn of m1 not equal to rows of m2
-	if (C1 != R2) {
-		printf("The number of columns in Matrix-1 must be "
-			"equal to the number of rows in "
-			"Matrix-2\n");
-		printf("Please update MACROs value according to "
-			"your array dimension in "
-			"#define section\n");
+    for (int i = 0; i < rows1; i++) {
+        for (int j = 0; j < cols2; j++) {
+            result[i][j] = 0;
+            for (int k = 0; k < rows2; k++) {
+                result[i][j] += m1[i][k] * m2[k][j];
+            }
+            printf("%d\t", result[i][j]);
+        }
+        printf("\n");
+    }
+}
 
-		exit(EXIT_FAILURE);
-	}
+int main() {
+    int m1[3][2] = { { 1, 2 }, { 3, 4 }, { 5, 6 } };
+    int m2[2][3] = { { 1, 1, 1 }, { 2, 2, 2 } };
+    int result[3][3]; // Adjusted size for compatibility
 
-	// Function call
-	multiplyMatrix(m1, m2);
+    if (checkCompatibility(3, 2, 2, 3)) {
+        return 1; // Handle potential error from compatibility check
+    }
 
-	return 0;
+    multiplyMatrices(m1, m2, result, 3, 2, 2, 3);
+
+    return 0;
 }
